@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2019 by nyitra88 (http://jsbin.com/xuvabin/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+
+<html>
+  
+<head>
+<meta name="description" content="[Színóra]">
+  
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width">
+  
+  <title></title>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
+  
+<style id="jsbin-css">
+* { margin: 0; padding: 0; };
+
+html, body {
+  height: 100%;
+}
+
+h1, #clock {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Mystery Quest', cursive;
+  font-size: 68px;
+  line-height: 1.4;
+  top: 5rem;
+  color: white;
+}
+
+</style>
+</head>
+  
+<body>
+  <h1>A pontos idő:</h1>
+ <div id="clock">12:13:14</div>
+  <h1>Legyen szép napod!</h1>
+  
+<script id="jsbin-javascript">
+function colorClock(){
+
+var date = new Date();
+var hours = date.getHours();
+var minutes = date.getMinutes();
+var seconds = date.getSeconds();
+
+if (hours<10) {
+  hours= '0'+ hours;
+}
+
+if (minutes<10) {
+  minutes= '0'+ minutes;
+}
+
+if (seconds < 10) {
+  seconds = '0' + seconds;
+}
+
+var clockFace = hours + ':' + minutes + ':' + seconds;
+
+setTimeout(function() {
+  colorClock();
+}, 1000);
+  
+document.getElementById('clock').innerHTML = clockFace;  
+  
+var hexColor = '#' + hours + minutes + seconds;
+
+document.body.style.background = hexColor;  
+  
+}
+
+colorClock();
+
+
+
+//A kódban szereplő new (new Date()) szerepével is majd az objektumoknál fogunk részletesen foglalkozni. Röviden a Date() objektumban vannak előre megírt metódusok (methods). Ha csak annyit írnánk: var date = Date(); a változónk az aktuális dátumbélyegzőt tárolná el, szöveges formátumban. Így viszont a teljes objektumról készít egy másolatot, és az előre megírt metódusait is használni tudod majd.
+</script>
+</body>
+  
+</html>
